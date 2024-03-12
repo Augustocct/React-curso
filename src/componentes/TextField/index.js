@@ -3,8 +3,9 @@ import './TextField.css'
 const TextField = (props) => {
     const placeholderModificada = `${props.placeholder}...`
 
+
     const aoDigitado = (evento) => {
-        console.log(evento.target.value)
+        props.aoAlterado(evento.target.value)
     }
 
     return (
@@ -12,7 +13,7 @@ const TextField = (props) => {
             <label>
                 {props.label}
             </label>
-            <input onChange={aoDigitado} required={props.obrigatorio} placeholder={placeholderModificada} />
+            <input value={props.valor} onChange={aoDigitado} required={props.obrigatorio} placeholder={placeholderModificada} />
         </div>
     )
 }
